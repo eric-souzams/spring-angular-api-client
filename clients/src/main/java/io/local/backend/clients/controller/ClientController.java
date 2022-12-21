@@ -8,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/clients")
+@CrossOrigin("http://localhost:4200")
 public class ClientController {
 
     @Autowired
@@ -28,6 +30,13 @@ public class ClientController {
         Client client = clientService.findById(id);
 
         return ResponseEntity.ok(client);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Client>> findAll() {
+        List<Client> clients = clientService.findAll();
+
+        return ResponseEntity.ok(clients);
     }
 
     @DeleteMapping(value = "/{id}")

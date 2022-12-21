@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+import java.util.Objects;
+
 @Service
 public class ClientService {
 
@@ -24,6 +27,11 @@ public class ClientService {
     public Client findById(Long id) {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Client not found"));
+    }
+
+    @Transactional(readOnly = true)
+    public List<Client> findAll() {
+        return clientRepository.findAll();
     }
 
     @Transactional
