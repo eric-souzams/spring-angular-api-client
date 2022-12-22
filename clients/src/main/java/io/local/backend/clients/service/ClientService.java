@@ -1,6 +1,5 @@
 package io.local.backend.clients.service;
 
-import io.local.backend.clients.exception.BusinessException;
 import io.local.backend.clients.model.entity.Client;
 import io.local.backend.clients.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ClientService {
