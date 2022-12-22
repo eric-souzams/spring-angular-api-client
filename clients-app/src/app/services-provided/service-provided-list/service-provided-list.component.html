@@ -1,0 +1,78 @@
+<h1 class="mt-4">Services</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">
+        Search
+    </li>
+</ol>
+
+<form #searchForm="ngForm" (ngSubmit)="search()">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Name: *</label>
+                <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Month: *</label>
+                <select name="clientId" class="form-control" [(ngModel)]="month" [ngModelOptions]="{standalone: true}">
+                    <option value="">Select...</option>
+                    <option *ngFor="let mon of months" [ngValue]="mon"> {{ mon }} </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-2 mt-2">
+            <br>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-search"></i> Search
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-2">
+        <button class="btn btn-warning" routerLink="/services/form">
+            <i class="fa fa-plus"></i>
+            New
+        </button>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Client</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let service of services">
+                   <td>{{ service.id }}</td>
+                   <td>{{ service.description }}</td>
+                   <td>{{ service.client.name }}</td>
+                   <td>{{ service.amount }}</td>
+                   <td>{{ service.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

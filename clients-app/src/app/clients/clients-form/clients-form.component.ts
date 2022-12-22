@@ -39,7 +39,7 @@ export class ClientsFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.client.id) {
+    if (this.id) {
       this.handlerUpdateClient();
     } else {
       this.handlerSaveClient();

@@ -9,6 +9,8 @@ import { ClientsModule } from './clients/clients.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsService } from './clients.service';
+import { ServicesProvidedModule } from './services-provided/services-provided.module';
+import { ServiceProvidedService } from './service-provided.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { ClientsService } from './clients.service';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    ClientsModule
+    ClientsModule,
+    ServicesProvidedModule
   ],
   providers: [
-    ClientsService
+    ClientsService,
+    ServiceProvidedService
   ],
   bootstrap: [AppComponent]
 })
