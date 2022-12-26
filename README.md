@@ -28,12 +28,13 @@ You'll need [Java 11+](https://www.oracle.com/br/java/technologies/javase-jdk11-
 
 ```bash
 $ git clone https://github.com/eric-souzams/spring-angular-api-client.git
-
-$ cd spring-angular-api-client
-
+$ cd spring-angular-api-client/clients
 $ mvn install
-
 $ mvn spring-boot:run
+
+$ cd spring-angular-api-client/clients-app
+$ npm i --save
+$ ng serve
 ```
 
 
