@@ -29,11 +29,20 @@ public class HandlerExcpetion {
 
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<Object> handlerResponseStatusException(ResponseStatusException exception) {
-        String message = exception.getMessage();
+        String message = exception.getReason();
 
         ErrorMessage errorMessage = new ErrorMessage(message);
 
         return ResponseEntity.status(exception.getStatus()).body(errorMessage);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Object> handlerBusinessException(BusinessException exception) {
+        String message = exception.getMessage();
+
+        ErrorMessage errorMessage = new ErrorMessage(message);
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
 
 }
