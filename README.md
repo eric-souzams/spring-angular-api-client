@@ -19,6 +19,8 @@ This project was developed using the following technologies:
 - [Spring Data JPA]()
 - [MySQL]()
 - [Lombok]()
+- [OAuth]()
+- [JWT]()
 
 
 ## Building
