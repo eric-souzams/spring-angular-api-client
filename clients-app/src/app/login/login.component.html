@@ -1,0 +1,71 @@
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card bg-light shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">
+                                    {{ isRegister ? 'Register' : 'Login' }}
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="alert alert-danger" *ngFor="let error of errors">
+                                    {{ error }}
+                                </div>
+
+                                <div class="alert alert-success" *ngIf="successMessage">
+                                    {{ successMessage }}
+                                </div>
+
+                                <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                        <input class="form-control py-4" [(ngModel)]="username" autocomplete="off" name="username" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Password</label>
+                                        <input class="form-control py-4" id="inputPassword" name="password" [(ngModel)]="password" type="password" placeholder="Enter password" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                            <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <!-- <a class="small" routerLink="/">Forgot Password?</a> -->
+                                        <button type="submit" class="btn btn-primary text-white" *ngIf="!isRegister">
+                                            Login
+                                        </button>
+
+                                        <button type="button" (click)="handlerRegister()" class="btn btn-success text-white" *ngIf="isRegister">
+                                            Register
+                                        </button>
+
+                                        <button type="button" class="btn btn-danger text-white" *ngIf="isRegister" (click)="handlerCancelRegister()">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="card-footer text-center">
+                                <div class="small">
+                                    <a href="#" (click)="handlerPrepareRegister($event)">
+                                        Need an account? Sign up!
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
